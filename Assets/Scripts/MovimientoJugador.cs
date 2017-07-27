@@ -5,8 +5,8 @@ using UnityEngine;
 public class MovimientoJugador : MonoBehaviour {
     private float valorMovimiento;
     private float valorRotación;
-    private float velocidad = 6.5f;
-    private float velocidadRotacion = 100f;
+    public float velocidad = 6.5f;
+    public float velocidadRotacion = 100f;
     private Rigidbody j_rigidbody;
 
     private void Awake()

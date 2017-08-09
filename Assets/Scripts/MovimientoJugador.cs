@@ -16,6 +16,7 @@ public class MovimientoJugador : MonoBehaviour {
     private bool bloquearMovimiento = false;
     private Quaternion rotación;
     private Quaternion final;
+    public GameObject bala;
 
     private void Awake()
     {
@@ -50,6 +51,7 @@ public class MovimientoJugador : MonoBehaviour {
         Girar();
         Giro180();
         Apuntar();
+
     }
 
     private void Mover()
@@ -99,7 +101,22 @@ public class MovimientoJugador : MonoBehaviour {
 
     private void Apuntar()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                Disparar();
+            }
+        }
+    }
 
+    private void Disparar()
+    {
+        Transform transformSpawn = GameObject.FindGameObjectWithTag("SpawnBala").transform;
+        Vector3 posición = new Vector3(transformSpawn.position.x, transformSpawn.position.y, transformSpawn.position.z);
+        GameObject balaDisparada = Instantiate(bala, posición, transformSpawn.rotation);
+        balaDisparada.GetComponent<BalaDisparada>().enabled = true;
+        
     }
 
     private void Girar()

@@ -11,7 +11,7 @@ public class BalaDisparada : MonoBehaviour {
     //public Transform rotaciónBala;
 
 	// Use this for initialization
-	void Start () {
+	void Awake() {
         jugador = GameObject.FindGameObjectWithTag("Player");
         posInicial = jugador.transform;
         rotacion = jugador.transform.rotation;
@@ -19,6 +19,7 @@ public class BalaDisparada : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         float distancia = Vector3.Distance(posInicial.position, transform.position);
         float move = velocidad * Time.deltaTime;
         transform.Translate(transform.forward * move);
@@ -27,4 +28,12 @@ public class BalaDisparada : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

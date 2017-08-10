@@ -8,7 +8,7 @@ public class BalaDisparada : MonoBehaviour {
     public GameObject jugador;
     private Transform posInicial;
     private Quaternion rotacion;
-    public Transform rotaciónBala;
+    //public Transform rotaciónBala;
 
 	// Use this for initialization
 	void Start () {

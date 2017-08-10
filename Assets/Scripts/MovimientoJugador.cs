@@ -116,7 +116,6 @@ public class MovimientoJugador : MonoBehaviour {
         Vector3 posición = new Vector3(transformSpawn.position.x, transformSpawn.position.y, transformSpawn.position.z);
         GameObject balaDisparada = Instantiate(bala, posición, transformSpawn.rotation);
         balaDisparada.GetComponent<BalaDisparada>().enabled = true;
-        
     }
 
     private void Girar()

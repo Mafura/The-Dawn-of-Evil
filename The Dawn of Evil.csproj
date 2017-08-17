@@ -79,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BalaDisparada.cs" />
+    <Compile Include="Assets\Scripts\ColliderCamara.cs" />
+    <Compile Include="Assets\Scripts\ControlCamara.cs" />
+    <Compile Include="Assets\Scripts\DisparoJugador.cs" />
     <Compile Include="Assets\Scripts\IAZombi.cs" />
     <Compile Include="Assets\Scripts\MovimientoJugador.cs" />
   </ItemGroup>

@@ -50,7 +50,7 @@ public class MovimientoJugador : MonoBehaviour {
         }
         Girar();
         Giro180();
-        Apuntar();
+        //Apuntar();
 
     }
 

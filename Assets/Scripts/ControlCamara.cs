@@ -9,10 +9,15 @@ public class ControlCamara : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GameObject[] auxcamaras = GameObject.FindGameObjectsWithTag("MainCamera");
+        Debug.Log(auxcamaras.Length);
+
+        camaras = new List<Camera>();
 
         for (int i = 0; i < auxcamaras.Length; i++)
         {
+            Debug.Log(auxcamaras[i].GetComponent<Camera>().name);
             camaras.Add(auxcamaras[i].GetComponent<Camera>());
+            //camaras.Add(auxcamaras[i]);
         }
 	}
 	

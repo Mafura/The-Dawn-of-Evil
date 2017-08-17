@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33347650840657356}
   - component: {fileID: 135531802400904974}
   - component: {fileID: 23968127018566500}
-  - component: {fileID: 114554950430533324}
   - component: {fileID: 135946567020904448}
+  - component: {fileID: 54610055070140172}
   m_Layer: 0
   m_Name: Bala
   m_TagString: Bala
@@ -83,20 +83,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306312148975156}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114554950430533324
-MonoBehaviour:
+--- !u!54 &54610055070140172
+Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306312148975156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7277fe6facf46e04e9d8032efc7922b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rango: 100
-  velocidad: 1
-  jugador: {fileID: 0}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
 --- !u!135 &135531802400904974
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -13,7 +13,7 @@ public class MovimientoJugador : MonoBehaviour {
     private float rotaciónFinal;
     private Rigidbody j_rigidbody;
     private bool rotando = false;
-    private bool bloquearMovimiento = false;
+    public bool bloquearMovimiento = false;
     private Quaternion rotación;
     private Quaternion final;
     public GameObject bala;
@@ -47,11 +47,11 @@ public class MovimientoJugador : MonoBehaviour {
         if (!bloquearMovimiento)
         {
             Mover();
+            Girar();
+            Giro180();
         }
-        Girar();
-        Giro180();
+        
         //Apuntar();
-
     }
 
     private void Mover()
@@ -78,24 +78,23 @@ public class MovimientoJugador : MonoBehaviour {
 
     private void Giro180()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Space) && valorMovimiento <= 0f)
+        //Debug.Log(transform.rotation.y);
+        //Debug.Log(final.y);
+        if (Input.GetKeyDown(KeyCode.Space) && valorMovimiento < 0f && !rotando)
         {
             rotando = true;
-            rotaciónInicial = transform.rotation.y;
+            rotaciónInicial = j_rigidbody.rotation.y;
             rotaciónFinal = j_rigidbody.rotation.y + 180f;
-            //bloquearMovimiento = true;
             final = Quaternion.LookRotation(-transform.forward, Vector3.up);
+            //Debug.Log("giro180");
         }
         if (rotando)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, final, 5f * Time.deltaTime);
-            
+            //transform.rotation = final;
+            transform.rotation = Quaternion.Slerp(transform.rotation, final, 5f * Time.deltaTime); 
         }
-        if (transform.rotation.y == final.y)
-        {
+        if (transform.rotation.y == final.y) { 
             rotando = false;
-            //bloquearMovimiento = false;
         }
     }
 
@@ -120,6 +119,7 @@ public class MovimientoJugador : MonoBehaviour {
 
     private void Girar()
     {
+        //Debug.Log("giro");
         if(valorMovimiento == 0f)
         {
             float girar = valorRotación * velocidadRotacion * Time.deltaTime;

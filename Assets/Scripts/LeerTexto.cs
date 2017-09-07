@@ -15,34 +15,26 @@ public class LeerTexto : MonoBehaviour {
         texto = GameObject.FindGameObjectWithTag("ScreenText").GetComponent<Text>();
         jugador = GameObject.FindGameObjectWithTag("Player");
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    private void OnTriggerExit(Collider other)
-    {
-
-    }
 
     private void OnTriggerStay(Collider other)
     {
-        //Debug.Log(hijo.text);
-        if (Input.GetKeyDown(KeyCode.E) && !leyendo)
+        if (other.tag == "Player")
         {
-            jugador.GetComponent<MovimientoJugador>().bloquearMovimiento = true;
-            //texto.enabled = true;
-            texto.text = hijo.text;
-            leyendo = true;
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.E) && leyendo)
-        {
-            jugador.GetComponent<MovimientoJugador>().bloquearMovimiento = false;
-            //texto.enabled = false;
-            texto.text = "";
-            leyendo = false;
+            if (Input.GetKeyDown(KeyCode.E) && !leyendo)
+            {
+                jugador.GetComponent<MovimientoJugador>().bloquearMovimiento = true;
+                //texto.enabled = true;
+                texto.text = hijo.text;
+                leyendo = true;
+
+            }
+            else if (Input.GetKeyDown(KeyCode.E) && leyendo)
+            {
+                jugador.GetComponent<MovimientoJugador>().bloquearMovimiento = false;
+                //texto.enabled = false;
+                texto.text = "";
+                leyendo = false;
+            }
         }
     }
 }

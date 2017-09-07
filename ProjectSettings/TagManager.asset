@@ -8,6 +8,7 @@ TagManager:
   - Enemigo
   - Bala
   - ScreenText
+  - Inventario
   layers:
   - Default
   - TransparentFX
